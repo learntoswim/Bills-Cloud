@@ -13,8 +13,15 @@ var options = {
 
 // Sound, rain and thunder!
 var player = require('player');
-var rain = new player('./thunder/background-rain.mp3');
-var thunder = new player('./thunder/thunder-clap.mp3');
+// var rain = new player('./thunder/background-rain.mp3');
+var thunderMP3s = [
+  './thunder/148277450.mp3',
+  './thunder/315681025.mp3',
+  './thunder/587966950.mp3',
+  './thunder/1913038465.mp3',
+  './thunder/thunder-clap.mp3'
+]
+var thunder;
 
 // Config for flash intervals
 var flashInterval = 0;
@@ -22,7 +29,7 @@ var numFlashesPerEpisode = 10;
 var maxTimeBetweenFlashes = 5 * 1000;
 
 // Start the rain...
-rain.play();
+// rain.play();
 
 // Generate a random number between 1 sec
 function generateFlashTime () {
@@ -62,10 +69,12 @@ function makeLightning (turnBulbOn, bulbBrightness) {
 
         // Play now and callback when playend
         if (flashInterval === 0) {
-          thunder.play(function(err, player) {
-            console.log(err, player);
-          });
-
+          var randomThunderClap = thunderMP3s[Math.floor(Math.random() * thunderMP3s.length)];
+          thunder = new player(randomThunderClap);
+          thunder.play();
+          // thunder.play(function(err, player) {
+          //   console.log(err, player);
+          // });
         }
 
         makeLightning(true, bulbBrightness);
