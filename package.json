@@ -11,5 +11,8 @@
   "license": "ISC",
   "devDependencies": {
     "request": "^2.73.0"
+  },
+  "dependencies": {
+    "player": "^0.6.1"
   }
 }
