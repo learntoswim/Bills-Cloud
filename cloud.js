@@ -15,10 +15,10 @@ var options = {
 var player = require('player');
 // var rain = new player('./thunder/background-rain.mp3');
 var thunderMP3s = [
-  './thunder/148277450.mp3',
-  './thunder/315681025.mp3',
-  './thunder/587966950.mp3',
-  './thunder/1913038465.mp3',
+  // './thunder/148277450.mp3',
+  // './thunder/315681025.mp3',
+  // './thunder/587966950.mp3',
+  // './thunder/1913038465.mp3',
   './thunder/thunder-clap.mp3'
 ]
 var thunder;
