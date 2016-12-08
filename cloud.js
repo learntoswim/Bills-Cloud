@@ -7,21 +7,23 @@ var APIId = '30e271fb6eab239f791c67f44da98659';
 var options = {
   host: 'http://10.10.33.105',
   port: 80,
-  path: '/api/' + APIId + '/lights/2/state',
+  path: '/api/' + APIId + '/lights/1/state',
   method: 'PUT'
 };
 
+console.log(options);
+
 // Sound, rain and thunder!
-var player = require('player');
+//var player = require('player');
 // var rain = new player('./thunder/background-rain.mp3');
-var thunderMP3s = [
-  // './thunder/148277450.mp3',
-  // './thunder/315681025.mp3',
-  // './thunder/587966950.mp3',
-  // './thunder/1913038465.mp3',
-  './thunder/thunder-clap.mp3'
-]
-var thunder;
+// var thunderMP3s = [
+//   // './thunder/148277450.mp3',
+//   // './thunder/315681025.mp3',
+//   // './thunder/587966950.mp3',
+//   // './thunder/1913038465.mp3',
+//   './thunder/thunder-clap.mp3'
+// ]
+// var thunder;
 
 // Config for flash intervals
 var flashInterval = 0;
@@ -69,9 +71,9 @@ function makeLightning (turnBulbOn, bulbBrightness) {
 
         // Play now and callback when playend
         if (flashInterval === 0) {
-          var randomThunderClap = thunderMP3s[Math.floor(Math.random() * thunderMP3s.length)];
-          thunder = new player(randomThunderClap);
-          thunder.play();
+          // var randomThunderClap = thunderMP3s[Math.floor(Math.random() * thunderMP3s.length)];
+          // thunder = new player(randomThunderClap);
+          // thunder.play();
           // thunder.play(function(err, player) {
           //   console.log(err, player);
           // });
@@ -86,8 +88,8 @@ function makeLightning (turnBulbOn, bulbBrightness) {
       }
       else {
         // Stop noise and flashing
-        thunder.stop();
-        makeLightning(false, 0);
+        // thunder.stop();
+        // makeLightning(false, 0);
         // Wait between the loop starts again
         setTimeout(loop, maxTimeBetweenFlashes);
         flashInterval = 0;
